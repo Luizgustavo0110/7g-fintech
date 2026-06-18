@@ -4,7 +4,7 @@
 
 <br>
 
-![7G BANK](https://img.shields.io/badge/GUS%20BANK-Fintech%20Dashboard-7C5CFC?style=for-the-badge&logo=googlechrome&logoColor=white)
+![7G BANK](https://img.shields.io/badge/7G%20BANK-Fintech%20Dashboard-7C5CFC?style=for-the-badge&logo=googlechrome&logoColor=white)
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 ![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
@@ -60,7 +60,7 @@ O design adota o estilo **Glassmorphism** — painéis semitransparentes com efe
 ## 📂 Estrutura de arquivos
 
 ```
-gusbank-fintech/
+7G-fintech/
 │
 ├── index.html        # Dashboard principal
 │
@@ -69,27 +69,6 @@ gusbank-fintech/
 │
 └── README.md         # Documentação do projeto
 ```
-
----
-
-## 🚀 Como executar
-
-**Sem instalação.** O Tailwind é carregado via CDN e funciona com qualquer navegador.
-
-```bash
-# 1. Clone o repositório
-git clone https://github.com/SEU_USUARIO/gusbank-fintech.git
-
-# 2. Acesse a pasta
-cd gusbank-fintech
-
-# 3. Abra no navegador
-# Clique duas vezes em index.html  OU  use Live Server no VS Code
-```
-
-> ✅ Compatível com Chrome, Firefox, Edge e Safari.
-
----
 
 ## 📱 Responsividade
 
