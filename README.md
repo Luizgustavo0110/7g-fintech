@@ -4,7 +4,7 @@
 
 <br>
 
-![GUS BANK](https://img.shields.io/badge/GUS%20BANK-Fintech%20Dashboard-7C5CFC?style=for-the-badge&logo=googlechrome&logoColor=white)
+![7G BANK](https://img.shields.io/badge/GUS%20BANK-Fintech%20Dashboard-7C5CFC?style=for-the-badge&logo=googlechrome&logoColor=white)
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 ![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
@@ -129,5 +129,5 @@ cd gusbank-fintech
 **Luiz Gustavo Miranda**  
 Estudante de ADS — FIAP · 2026
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/SEU_PERFIL)
-[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/SEU_USUARIO)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://github.com/Luizgustavo0110)
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://www.linkedin.com/in/luizgpmiranda/)
