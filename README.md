@@ -93,14 +93,6 @@ O design adota o estilo **Glassmorphism** — painéis semitransparentes com efe
 
 ---
 
-## 📚 Contexto acadêmico
-
-| Fase | Entrega |
-|---|---|
-| Fase 1 | Conceito e briefing da Fintech |
-| Fase 2 | Prototipação das telas no Figma |
-| **Fase 3** | **Desenvolvimento Web — HTML, CSS e Tailwind CSS** ← aqui |
-
 ---
 
 ## 👨‍💻 Autor
