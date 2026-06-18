@@ -1,0 +1,596 @@
+/* ============================================================
+   GUS BANK – style.css  (com Glassmorphism)
+   CSS customizado separado do HTML — critério 4 da FIAP
+   Glassmorphism: backdrop-filter, bordas translúcidas,
+   orbs de fundo, brilhos suaves nos cards
+   ============================================================ */
+
+/* ---------- Reset e base ---------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: #0D0F1A;
+  color: #E2E5F1;
+  font-family: "Inter", sans-serif;
+  display: flex;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ============================================================
+   GLASSMORPHISM — Orbs de fundo
+   Círculos desfocados que criam a profundidade típica do glass
+   ============================================================ */
+.bg-orbs {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.18;
+}
+
+.orb-purple {
+  width: 500px;
+  height: 500px;
+  background: #7C5CFC;
+  top: -120px;
+  left: 180px;
+}
+
+.orb-blue {
+  width: 400px;
+  height: 400px;
+  background: #4F8EF7;
+  bottom: 100px;
+  right: -80px;
+}
+
+.orb-green {
+  width: 300px;
+  height: 300px;
+  background: #22D3A0;
+  bottom: -60px;
+  left: 320px;
+}
+
+/* ---------- SIDEBAR ---------- */
+.sidebar {
+  width: 240px;
+  min-height: 100vh;
+  /* GLASS: fundo semitransparente + blur */
+  background: rgba(19, 22, 42, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-right: 1px solid rgba(255,255,255,0.06);
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 1rem;
+  position: fixed;
+  top: 0; left: 0;
+  height: 100%;
+  z-index: 100;
+  transition: transform 0.3s ease;
+}
+
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0.5rem 1.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  margin-bottom: 1rem;
+}
+
+.logo-icon {
+  width: 36px;
+  height: 36px;
+  /* GLASS: borda luminosa no logo */
+  background: rgba(124, 92, 252, 0.25);
+  border: 1px solid rgba(124, 92, 252, 0.5);
+  backdrop-filter: blur(8px);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9B7DFF;
+  font-family: "Syne", sans-serif;
+  font-weight: 800;
+  font-size: 1.1rem;
+  box-shadow: 0 0 12px rgba(124,92,252,0.3);
+}
+
+.logo-text {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #7C5CFC;
+  letter-spacing: 0.05em;
+}
+
+.sidebar-user {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 0.5rem;
+  /* GLASS: mini card glass no perfil */
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  background: rgba(124, 92, 252, 0.3);
+  border: 1px solid rgba(124,92,252,0.5);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: #C4B0FF;
+  flex-shrink: 0;
+}
+
+.avatar-sm {
+  width: 32px; height: 32px;
+  background: rgba(124,92,252,0.3);
+  border: 1px solid rgba(124,92,252,0.5);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.75rem;
+  color: #C4B0FF;
+}
+
+.sidebar-nav { display: flex; flex-direction: column; gap: 0.25rem; flex: 1; }
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.65rem 0.75rem;
+  border-radius: 8px;
+  color: #7B7F96;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.nav-item:hover {
+  background: rgba(255,255,255,0.05);
+  color: #E2E5F1;
+}
+
+.nav-item.active {
+  /* GLASS: item ativo com glass sutil */
+  background: rgba(124, 92, 252, 0.15);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(124, 92, 252, 0.25);
+  color: #9B7DFF;
+}
+
+.nav-icon { width: 18px; height: 18px; flex-shrink: 0; }
+
+.sidebar-footer {
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255,255,255,0.07);
+}
+
+/* ---------- CONTEÚDO PRINCIPAL ---------- */
+.main-content {
+  margin-left: 240px;
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Topbar mobile */
+.topbar {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  background: rgba(13, 15, 26, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.menu-btn {
+  background: none; border: none;
+  color: #E2E5F1; cursor: pointer; padding: 0.25rem;
+}
+
+/* ---------- CABEÇALHO DA PÁGINA ---------- */
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.btn-primary {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  /* GLASS: botão com efeito glass luminoso */
+  background: rgba(124, 92, 252, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(155, 125, 255, 0.4);
+  color: white;
+  border-radius: 10px;
+  padding: 0.65rem 1.25rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(124, 92, 252, 0.35);
+  transition: all 0.2s;
+}
+
+.btn-primary:hover {
+  background: rgba(108, 73, 232, 0.9);
+  box-shadow: 0 6px 28px rgba(124, 92, 252, 0.5);
+  transform: translateY(-1px);
+}
+
+/* ============================================================
+   GLASSMORPHISM — Cards de resumo
+   O coração do efeito: fundo translúcido + blur + borda brilhante
+   ============================================================ */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.glass-card {
+  position: relative;
+  overflow: hidden;
+  /* GLASS: fundo semitransparente com blur */
+  background: rgba(26, 30, 53, 0.55);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  /* GLASS: borda luminosa translúcida */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 1.4rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.glass-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+  border-color: rgba(255,255,255,0.12);
+}
+
+/* GLASS: linha colorida no topo de cada card */
+.border-top-green { border-top: 2px solid #22D3A0; }
+.border-top-red   { border-top: 2px solid #F75A5A; }
+.border-top-purple{ border-top: 2px solid #7C5CFC; }
+
+.card-label {
+  font-size: 0.78rem;
+  color: #7B7F96;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  font-weight: 600;
+}
+
+.card-value {
+  font-family: "Syne", sans-serif;
+  font-size: 1.45rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.card-sub {
+  font-size: 0.78rem;
+  color: #7B7F96;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.25rem;
+}
+
+/* GLASS: brilho suave no canto inferior de cada card */
+.card-glow {
+  position: absolute;
+  bottom: -30px;
+  right: -20px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  filter: blur(35px);
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+.glow-green  { background: #22D3A0; }
+.glow-red    { background: #F75A5A; }
+.glow-purple { background: #7C5CFC; }
+
+.badge-up {
+  background: rgba(34, 211, 160, 0.15);
+  color: #22D3A0;
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.badge-down {
+  background: rgba(247, 90, 90, 0.15);
+  color: #F75A5A;
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+/* ---------- GRID INFERIOR ---------- */
+.bottom-grid {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 1rem;
+  align-items: start;
+}
+
+.right-col { display: flex; flex-direction: column; gap: 1rem; }
+
+/* ============================================================
+   GLASSMORPHISM — Painéis de conteúdo
+   ============================================================ */
+.glass-panel {
+  background: rgba(26, 30, 53, 0.5);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  /* GLASS: linha brilhante no topo do painel */
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  padding: 1.4rem 1.5rem;
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.panel-title {
+  font-family: "Syne", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #E2E5F1;
+}
+
+.panel-footer {
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  text-align: center;
+}
+
+/* ---------- FILTROS ---------- */
+.filter-group { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+
+.filter-btn {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.1);
+  color: #7B7F96;
+  border-radius: 20px;
+  padding: 0.3rem 0.85rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filter-btn:hover {
+  border-color: rgba(124,92,252,0.5);
+  color: #9B7DFF;
+  background: rgba(124,92,252,0.08);
+}
+
+.filter-btn.active {
+  /* GLASS: filtro ativo com glass */
+  background: rgba(124, 92, 252, 0.2);
+  backdrop-filter: blur(4px);
+  border-color: rgba(124, 92, 252, 0.5);
+  color: #C4B0FF;
+}
+
+/* ---------- TABELA DE TRANSAÇÕES ---------- */
+.tx-table { width: 100%; border-collapse: collapse; }
+
+.tx-table th {
+  text-align: left;
+  font-size: 0.73rem;
+  font-weight: 600;
+  color: #7B7F96;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.tx-table td { padding: 0.85rem 0.75rem; font-size: 0.875rem; color: #E2E5F1; }
+
+.tx-row {
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  transition: background 0.15s;
+}
+
+.tx-row:last-child { border-bottom: none; }
+
+.tx-row:hover {
+  /* GLASS: hover na linha com micro glass */
+  background: rgba(124, 92, 252, 0.06);
+}
+
+.tx-desc { display: flex; align-items: center; gap: 0.6rem; font-weight: 500; }
+
+/* Dots coloridos */
+.dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: inline-block;
+}
+
+.dot-red    { background: #F75A5A; box-shadow: 0 0 6px rgba(247,90,90,0.5); }
+.dot-green  { background: #22D3A0; box-shadow: 0 0 6px rgba(34,211,160,0.5); }
+.dot-blue   { background: #4F8EF7; box-shadow: 0 0 6px rgba(79,142,247,0.5); }
+.dot-purple { background: #7C5CFC; box-shadow: 0 0 6px rgba(124,92,252,0.5); }
+
+/* Tags com glass sutil */
+.tag {
+  display: inline-block;
+  padding: 0.2rem 0.65rem;
+  border-radius: 6px;
+  font-size: 0.73rem;
+  font-weight: 600;
+  backdrop-filter: blur(4px);
+}
+
+.tag-red    { background: rgba(247,90,90,0.12);   color: #F75A5A;  border: 1px solid rgba(247,90,90,0.2); }
+.tag-green  { background: rgba(34,211,160,0.12);  color: #22D3A0;  border: 1px solid rgba(34,211,160,0.2); }
+.tag-blue   { background: rgba(79,142,247,0.12);  color: #4F8EF7;  border: 1px solid rgba(79,142,247,0.2); }
+.tag-orange { background: rgba(251,146,60,0.12);  color: #FB923C;  border: 1px solid rgba(251,146,60,0.2); }
+.tag-purple { background: rgba(124,92,252,0.12);  color: #9B7DFF;  border: 1px solid rgba(124,92,252,0.2); }
+
+/* ---------- OBJETIVOS ---------- */
+.goal-list { display: flex; flex-direction: column; gap: 1rem; }
+
+.goal-item { display: flex; flex-direction: column; gap: 0.4rem; }
+
+.goal-info { display: flex; justify-content: space-between; align-items: center; }
+
+.goal-name  { font-size: 0.875rem; font-weight: 600; color: #E2E5F1; }
+.goal-values { font-size: 0.75rem; color: #7B7F96; }
+
+.progress-bar-bg {
+  width: 100%;
+  height: 8px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 99px;
+  overflow: hidden;
+  /* GLASS: trilho com borda translúcida */
+  border: 1px solid rgba(255,255,255,0.04);
+}
+
+.progress-bar-fill {
+  height: 100%;
+  border-radius: 99px;
+  box-shadow: 0 0 8px rgba(124,92,252,0.4);
+  transition: width 0.6s ease;
+}
+
+.goal-meta { display: flex; justify-content: space-between; font-size: 0.72rem; color: #7B7F96; }
+
+/* ---------- GRÁFICO DE GASTOS ---------- */
+.expense-breakdown { display: flex; flex-direction: column; gap: 0.85rem; }
+
+.expense-row {
+  display: grid;
+  grid-template-columns: 120px 1fr 40px;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.expense-bar-wrap {
+  height: 8px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 99px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.04);
+}
+
+.expense-bar {
+  height: 100%;
+  border-radius: 99px;
+  transition: width 0.6s ease;
+}
+
+.expense-pct { font-size: 0.75rem; color: #7B7F96; text-align: right; }
+
+/* ============================================================
+   RESPONSIVIDADE — MOBILE FIRST
+   ============================================================ */
+
+/* Tablet: ≤ 1024px */
+@media (max-width: 1024px) {
+  .bottom-grid { grid-template-columns: 1fr; }
+  .right-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+}
+
+/* Mobile: ≤ 768px */
+@media (max-width: 768px) {
+  .sidebar { transform: translateX(-100%); }
+  .sidebar.open { transform: translateX(0); }
+  .topbar { display: flex; }
+  .main-content { margin-left: 0; padding: 0; }
+  .page-header, .cards-grid, .bottom-grid { padding: 0 1rem; }
+  .page-header { padding-top: 1rem; }
+  .cards-grid { grid-template-columns: 1fr; }
+  .right-col { display: flex; flex-direction: column; }
+  .card-value { font-size: 1.3rem; }
+  .tx-table thead { display: none; }
+  .tx-table, .tx-table tbody, .tx-table tr, .tx-table td { display: block; width: 100%; }
+  .tx-row { padding: 0.5rem 0; display: flex; flex-direction: column; gap: 0.3rem; }
+  .tx-row td { padding: 0.1rem 0.75rem; }
+  .text-right { text-align: left !important; }
+  .expense-row { grid-template-columns: 100px 1fr 35px; }
+  .bottom-grid { padding-bottom: 1.5rem; }
+  /* Reduz orbs no mobile */
+  .orb-purple { width: 280px; height: 280px; }
+  .orb-blue   { width: 220px; height: 220px; }
+  .orb-green  { width: 180px; height: 180px; }
+}
+
+/* Mobile pequeno: ≤ 480px */
+@media (max-width: 480px) {
+  .filter-group { width: 100%; }
+  .filter-btn { font-size: 0.73rem; padding: 0.25rem 0.6rem; }
+}
+
+/* Overlay mobile — fundo escuro quando sidebar está aberta */
+#sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+}
+
+#sidebar-overlay.active {
+  display: block;
+}
